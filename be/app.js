@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 
 const authRouter = require('./src/routes/auth');
 const profileRouter = require('./src/routes/profile');
+const authMiddleware = require("./src/middleware/authMiddleware");
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(cookieParser());
 app.use(cors({ origin: true, credentials: true }));
 
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/profile', profileRouter);
+app.use('/api/v1/profile', authMiddleware, profileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

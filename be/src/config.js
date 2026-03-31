@@ -3,6 +3,7 @@ const fs = require("fs");
 const readFileSync = filename => fs.readFileSync(filename).toString("utf8");
 
 module.exports = {
+    JWT_SECRET: '123',
     database: {
         host: process.env.DATABASE_HOST || "localhost",
         database: process.env.DATABASE_DB,

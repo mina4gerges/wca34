@@ -4,8 +4,8 @@ const createError = require('http-errors');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 
-const authRouter = require('./routes/auth');
-const profileRouter = require('./routes/profile');
+const authRouter = require('./src/routes/auth');
+const profileRouter = require('./src/routes/profile');
 
 const app = express();
 

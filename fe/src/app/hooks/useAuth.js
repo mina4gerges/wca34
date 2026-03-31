@@ -3,8 +3,8 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from "@tanstack/react-query";
 
-import { loginApi } from "../network/api/auth";
 import client from "../network/client";
+import { loginApi } from "../network/api/auth";
 
 const useAuth = () => {
     const router = useRouter();

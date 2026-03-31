@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
 
 const Login = () => {
+    // in real world app we use libraries like formik and yup
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -24,7 +25,7 @@ const Login = () => {
     }
 
     const onLogin = () => {
-        if(email.trim() && password.trim()) {
+        if (email.trim() && password.trim()) {
             setEmailError('');
             setPasswordError('');
 
@@ -32,11 +33,11 @@ const Login = () => {
             return
         }
 
-        if(!email.trim()) {
+        if (!email.trim()) {
             setEmailError('Email is required');
         }
 
-        if(!password.trim()) {
+        if (!password.trim()) {
             setPasswordError('Password is required');
         }
     }

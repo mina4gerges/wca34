@@ -7,22 +7,24 @@ import client from "../network/client";
 import { profileApi } from "../network/api/profile";
 
 const useProfile = () => {
-    const queryFn = async () => await client({url: profileApi});
+    const queryFn = async () => await client({ url: profileApi });
 
     const { data, isPending, error } = useQuery({
         queryFn,
         queryKey: ['profile'],
     })
 
+    const errorMessage = error?.response?.data?.message;
+
     useEffect(() => {
-        if (error) {
-            alert(error?.response?.data?.message ?? "Something went wrong");
+        if (errorMessage) {
+            alert(errorMessage ?? "Something went wrong");
         }
-    }, [error]);
+    }, [errorMessage]);
 
-    const {email = '', imageUrl = '', fullName = ''} = data?.data ?? {}
+    const { email = '', imageUrl = '', fullName = '' } = data?.data ?? {};
 
-    return {fullName, email, imageUrl, isPending}
+    return { fullName, email, imageUrl, isPending };
 }
 
 export default useProfile;

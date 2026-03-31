@@ -3,9 +3,9 @@
 import useProfile from "../hooks/useProfile";
 
 const Profile = () => {
-    const {fullName, email, imageUrl, isPending} = useProfile();
+    const { fullName, email, imageUrl, isPending } = useProfile();
 
-    if(isPending) {
+    if (isPending) {
         return <div>Loading...</div>;
     }
 

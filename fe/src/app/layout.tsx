@@ -1,9 +1,10 @@
 'use client'
 
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import {QueryClientProvider} from "@tanstack/react-query";
 import queryClient from "@/app/network/appQueryClient";
+
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

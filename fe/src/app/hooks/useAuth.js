@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useMutation } from "@tanstack/react-query";
 
-import { loginApi } from "../api/auth";
+import { loginApi } from "../network/api/auth";
 import client from "../network/client";
 
 const useAuth = () => {
@@ -22,7 +22,7 @@ const useAuth = () => {
         }
     }
 
-    const onError = () => alert("Something went wrong");
+    const onError = (e) => alert(e?.response?.data?.message ?? "Something went wrong");
 
     const { isPending, mutate } = useMutation({ mutationFn, onSuccess, onError });
 
